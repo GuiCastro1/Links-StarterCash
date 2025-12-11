@@ -1,26 +1,182 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StarterCash</title>
+    <title>StarterCash - Links</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Variáveis CSS para Cores */
+        :root {
+            --cor-roxo-botao: hsl(260, 60%, 55%);
+            --cor-roxo-hover: hsl(260, 70%, 65%);
+            --cor-neon-borda: hsl(270, 100%, 75%);
+            --cor-texto: #ffffff;
+            --cor-fundo-overlay: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Estilos Globais e do Body */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000000;
+            color: var(--cor-texto);
+            margin: 0; /* Removido o margin: 20px daqui, mantendo apenas o padding */
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+
+        /* 1. Vídeo de Fundo (Backdrop) */
+        #video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            object-fit: cover;
+        }
+
+        /* 2. Overlay para escurecer o vídeo e garantir a legibilidade */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--cor-fundo-overlay);
+            z-index: -1;
+        }
+
+        /* Estilo do Container Principal (Main) - Card Centralizado */
+        main {
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            padding: 40px 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(180, 0, 255, 0.5);
+            border: 2px solid var(--cor-neon-borda);
+            backdrop-filter: blur(5px);
+            margin: 20px 0;
+        }
+
+        /* Estilo do Container do Avatar */
+        .avatar {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--cor-roxo-botao);
+            border: 3px solid var(--cor-neon-borda);
+            font-size: 40px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 15px var(--cor-neon-borda);
+            /* Importante: Adiciona 'overflow: hidden' para garantir que a imagem não vaze */
+            overflow: hidden; 
+        }
+
+        /* NOVO ESTILO: Ajusta a imagem dentro do .avatar */
+        .avatar img {
+            width: 100%; /* Faz a imagem ocupar 100% da largura do container (.avatar) */
+            height: 100%; /* Faz a imagem ocupar 100% da altura do container (.avatar) */
+            object-fit: cover; /* Garante que a imagem cubra todo o espaço sem distorcer */
+            border-radius: 50%; /* Mantém o formato redondo, mesmo que o container já seja */
+        }
+
+        /* Estilo da Seção de Links */
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* Estilo dos Links (Botões) */
+        .link-button {
+            display: block;
+            padding: 18px;
+            background-color: var(--cor-roxo-botao);
+            color: var(--cor-texto);
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Efeito Hover (ao passar o mouse) */
+        .link-button:hover {
+            background-color: var(--cor-roxo-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(180, 0, 255, 0.7);
+        }
+
+        /* Linha divisória personalizada */
+        .separator {
+            width: 40%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--cor-neon-borda), transparent);
+            margin: 20px auto;
+            border: none;
+        }
+
+        /* Estilos específicos para a versão desktop (acima de 768px) */
+        @media (min-width: 768px) {
+            main {
+                max-width: 600px;
+            }
+        }
+    </style>
 </head>
+
 <body>
+    <video autoplay muted loop id="video-background">
+        <source src="video.mp4" type="video/mp4">
+        Seu navegador não suporta a tag de vídeo.
+    </video>
+
+    <div class="video-overlay"></div>
+
     <main>
         <section>
-            <img src="" alt="">
+            <div class="avatar">
+                <img src="logoStartercash.png" alt="Logo StarterCash">
+            </div>
+
+            <h1 style="margin-bottom: 5px;">@StarterCash</h1>
+            <p>Seu subtítulo ou breve descrição aqui!</p>
         </section>
-        <section>
-            <button>Site</button>
-            <button>GitHub Front-end</button>
-            <button>GitHub Back-end</button>
-            <button>Guilherme</button>
-            <button>Igor</button>
-            <button>Leandro</button>
-            <button>Nicolas</button>
-            <button>Raicca</button>
+
+        <section class="links-container">
+            <a class="link-button" href="URL_SITE_OFICIAL" target="_blank">Site Oficial</a>
+            <a class="link-button" href="URL_GITHUB_FRONTEND" target="_blank">GitHub Front-end</a>
+            <a class="link-button" href="URL_GITHUB_BACKEND" target="_blank">GitHub Back-end</a>
+
+            <div class="separator"></div>
+
+            <a class="link-button" href="URL_GUILHERME" target="_blank">Guilherme</a>
+            <a class="link-button" href="URL_IGOR" target="_blank">Igor</a>
+            <a class="link-button" href="URL_LEANDRO" target="_blank">Leandro</a>
+            <a class="link-button" href="URL_NICOLAS" target="_blank">Nicolas</a>
+            <a class="link-button" href="URL_RAICCA" target="_blank">Raicca</a>
         </section>
     </main>
-    
 </body>
+
 </html>
